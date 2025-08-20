@@ -32,4 +32,16 @@ public class LinkedList {
             this.startLinkedList = this.startLinkedList.getNextPositionNodeLinkedList();
         }
     }
+
+    public String showElementsFromLinkedList(NodeLinkedList startLinkedList){
+        if(startLinkedList == null){
+            return null;
+        }else{
+            if(startLinkedList.getNextPositionNodeLinkedList() != null){
+                return String.valueOf(startLinkedList.getDataNodeLinkedList()) + " -> " + showElementsFromLinkedList(startLinkedList.getNextPositionNodeLinkedList());
+            }else{
+                return String.valueOf(startLinkedList.getDataNodeLinkedList()) + showElementsFromLinkedList(startLinkedList.getNextPositionNodeLinkedList());
+            }
+        }
+    }
 }
