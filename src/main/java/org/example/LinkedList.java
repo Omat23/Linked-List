@@ -1,5 +1,7 @@
 package org.example;
 
+import org.w3c.dom.Node;
+
 import javax.swing.JOptionPane;
 
 public class LinkedList {
@@ -43,5 +45,30 @@ public class LinkedList {
                 return String.valueOf(startLinkedList.getDataNodeLinkedList()) + showElementsFromLinkedList(startLinkedList.getNextPositionNodeLinkedList());
             }
         }
+    }
+
+    public int deleteElementsLinkedList(int elementToDelete, NodeLinkedList beforeNode, NodeLinkedList afterPosition){
+        if(this.startLinkedList == this.endLinkedList){
+            this.startLinkedList = null;
+            this.endLinkedList = null;
+        }else if(this.startLinkedList != null){
+            this.startLinkedList = this.startLinkedList.getNextPositionNodeLinkedList();
+        }else{
+            if(afterPosition != null && afterPosition.getDataNodeLinkedList() != elementToDelete){
+                return deleteElementsLinkedList(elementToDelete, beforeNode.getNextPositionNodeLinkedList(), afterPosition.getNextPositionNodeLinkedList());
+            }
+
+            if(afterPosition != null){
+                if(afterPosition.getNextPositionNodeLinkedList() != null){
+                    beforeNode.setNextPositionNodeLinkedList(afterPosition.getNextPositionNodeLinkedList());
+                }
+
+                if(afterPosition.getNextPositionNodeLinkedList() == null){
+                    this.endLinkedList = beforeNode;
+                    this.endLinkedList.setNextPositionNodeLinkedList(null);
+                }
+            }
+        }
+        return elementToDelete;
     }
 }
