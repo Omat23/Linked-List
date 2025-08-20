@@ -1,7 +1,5 @@
 package org.example;
 
-import org.w3c.dom.Node;
-
 import javax.swing.JOptionPane;
 
 public class LinkedList {
@@ -37,7 +35,7 @@ public class LinkedList {
 
     public String showElementsFromLinkedList(NodeLinkedList startLinkedList){
         if(startLinkedList == null){
-            return null;
+            return "";
         }else{
             if(startLinkedList.getNextPositionNodeLinkedList() != null){
                 return String.valueOf(startLinkedList.getDataNodeLinkedList()) + " -> " + showElementsFromLinkedList(startLinkedList.getNextPositionNodeLinkedList());
