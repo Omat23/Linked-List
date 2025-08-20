@@ -71,4 +71,8 @@ public class LinkedList {
         }
         return elementToDelete;
     }
+
+    public NodeLinkedList getStartLinkedList(){
+        return this.startLinkedList;
+    }
 }
